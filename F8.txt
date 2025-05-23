@@ -514,3 +514,422 @@ CHUỖI TRONG JAVASCRIPT
 	var firstName = "DEV";
 	var lastName = "UBUNTU";
 	console.log(`Toi la: ${firstName} ${lastName}`);
+
+OBJECT IN JAVASCRIPT
+Math Object
+- Math.PI
+	console.log(Math.PI); // PI = 3.14....
+- Math.round()
+	console.log(Math.round(1.3)); // 1
+	console.log(Math.round(1.8)); // 2
+	console.log(Math.round(1.5)); // 2
+	console.log(Math.round(1.499999)); // 1
+	//Làm tròn số thập phân thành số nguyên
+- Math.abs()
+	console.log(Math.abs(-5)); // 5
+ 	// Trả về giá trị tuyệt đối của một số
+- Math.ceil()
+	console.log(Math.ceil(4.000001)); // 5
+	//Làm tròn trên
+- Math.floor()
+	console.log(Math.floor(4.999999)); // 4
+	//Làm tròn dưới
+- Math.random()
+	console.log(Math.random()); // Trả về số thập phân ngẫu nhiên nhỏ hơn 1
+	// Example
+	var random = Math.floor(Math.random() * 100);
+	if (random =< 5) {
+		console.log("Success");
+	} else {
+		console.log("fail");
+	} 
+- Math.min()
+	console.log(Math.min(-100, 1, 90, 50, 40)); // -100
+- Math.max()
+	console.log(Math.max(-100, 1, 90, 50, 40)); // 90
+
+CÂU LỆNH RẼ NHÁNH - IF ELSE
+
+	var date = 2;
+	if (date === 2) {
+		cosole.log("Hom nay la thu 2");
+	} else if (date === 3) {
+		cosole.log("Hom nay la thu 3");
+	} else if (date === 4) {
+		cosole.log("Hom nay la thu 4");
+	} else {
+		cosole.log("Unknow");
+	}
+
+	//Kết quả: Hom nay la thu 2
+
+CÂU LỆNH RẼ NHÁNH - Switch
+	
+	var date = 2;
+	
+	switch(date) {
+		case 2:
+			console.log("Monday");
+			break;
+		case 3:
+			console.log("Tuesday");
+			break;
+		case 4:
+			console.log("Wednesday");
+			break;
+		case 5:
+			console.log("Thursday");
+			break;
+		case 6:
+			console.log("Friday");
+			break;
+		case 7:
+			console.log("Saturday");
+			break;
+		case 8:
+			console.log(Sunday");
+			break;
+		default:
+			console.log("Unknow");
+
+	}
+
+TOÁN TỬ 3 NGÔI - TERNARY OPERATOR
+- example:
+	var course = {
+		name: "JavaScript",
+		coin: 250
+	}
+
+	if (course.coin > 0) {
+		console.log(`${course.coin} Coins`);
+	} else {
+		console.log("Free");
+	}
+
+	//Ternary operator
+	var result = course.coin > 0 ? `${course.coin} Coins` : "Free";
+	console.log(result);
+
+VÒNG LẶP - LOOP
+1. for - Lặp với điều kiện đúng
+	for (var i = 1; i <= 1000; i++) {
+		console.log(i);
+	}
+//For Loop
+	var myArray = [
+		"Javascript";
+		"PHP";
+		"Java";
+		"Dart"
+	];
+	var arraylength = myArray.length;
+	for (var i = 0; i < arrayLength; i++) {
+		console.log(myArray[i]);
+	}
+	/**
+	* Tính tổng giá trị đơn hàng
+	* Ở bài này, chúng ta sẽ viết chương trình để tính tổng giá trị của 1 đơn hàng.
+	* Cho trước mảng orders là danh sách chứa các khóa học, các mặt hàng này được thể hiện dưới dạng object và đều có 1 key là price để thể hiện giá trị của mặt hàng đó.
+	* Bạn hãy hoàn thành hàm getTotal để tính được tổng giá trị của đơn hàng.
+	*/
+	var orders = [
+    	{
+        	name: 'Khóa học HTML - CSS Pro',
+        	price: 3000000
+    	},
+    	{
+        	name: 'Khóa học Javascript Pro',
+        	price: 2500000
+    	},
+    	{
+        	name: 'Khóa học React Pro',
+        	price: 3200000
+    	}
+	]
+	function getTotal(orders) {
+    	var total = 0;
+    	var ordersLength = orders.length;
+    	for (var i = 0; i < ordersLength; i++) {
+        	total += orders[i].price;
+    	}
+    	return total;
+	}
+	// Expected results:
+	getTotal(orders); // Output: 8700000
+
+2. for/in - Lặp qua key của đối tượng
+	var myInfo = {
+		name: "Leonard Nguyen";
+		age: 18;
+		address: "Ha Noi, VN"
+	}
+	for (var key in myInfo) {
+		console.log(myInfo[key]);
+	}
+
+	var myLanguages = [
+		"Javascript";
+		"PHP";
+		"Ruby";
+		"Java"
+	]
+	for(var key in myLanguages) {
+		console.log(key); //Ouput: 0 1 2 3
+	}
+
+	var languages = "Javascript";
+	for (var key in languages) {
+		console.log(languages[key]); //Output: J a v a s c r i p t 
+	}
+
+	/**
+	* Bài tập sử dụng for...in
+	*/
+	function run(object) {
+    	const arr=[];
+    	for (var key in object) {
+        	arr.push("Thuộc tính " + key + " có giá trị " + object[key]);
+    	};
+    	return arr;
+	}
+	console.log(run({ name: 'Nguyen Van A', age: 16 }));
+	// Expected results:
+	// Output:
+	// [
+	//     "Thuộc tính name có giá trị Nguyen Van A",
+	//     "Thuộc tính age có giá trị 16"
+	// ]
+3. for/of - Lặp qua value của đối tượng
+- Lấy ra từng phần tử của mảng or từng chữ cái của mỗi chuỗi.
+	var myLanguages = [
+		"Javascript";
+		"PHP";
+		"Ruby";
+		"Java"
+	]
+	for (var value of myLanguages) {
+		console.log(value);
+	}
+	// Expected results:
+	// Javascript
+	// PHP
+	// Ruby
+	// Java
+- Đối với Object:
+	var myInfo = {
+		name: "Leonard Nguyen";
+		age: 18;
+		address: "Ha Noi, VN"
+	};
+	for (var value of Object.keys(myInfo)) {
+		console.log(value);
+	}
+	// Expected results:
+	// name
+	// age
+	// address
+4. while - Lặp khi điều kiện đúng
+	var i = 0;
+	while(i < 1000) {
+		i++;
+		console.log(i);
+	}
+
+	var myLanguages = [
+		"Javascript";
+		"PHP";
+		"Ruby";
+		"Java"
+	]
+	var i = 0;
+	var arrayLength = myLanguages.length;
+	while (i < arrayLength) {
+		console.log(myLanguages[i]);
+		i++;
+	}
+5. do/while - Lặp ít nhất 1 lần, sau đó lặp khi điều kiện đúng
+	/**
+	* In ra dãy số tăng dần trong {1;10} 
+	*/
+	var i = 0;
+	do {
+		i++;
+		console.log(i);
+	} while(i < 10);
+6. Break and Continue in Loop
+	/**
+	* In ra dãy số tăng dần từ 1 đến 5
+	*/
+	for (var i = 0; i < 10; i++) {
+		console.log(i);
+		if (i >= 5) {
+			break;
+		}
+	}
+
+	/**
+	* In ra tất cả các số chẵn
+	*/
+	for (var i = 0; i < 10; i++) {
+		if (i % 2 !== 0) {
+			continue;
+		}
+
+		console.log(i);
+	}
+7. Nested Loop
+	/**
+	*
+	*/
+	var myArray = [
+		[1,2],
+		[3,4],
+		[5,6]
+	]
+
+	for (var i = 0; i < myArray.length; i++) {
+		for (var j = 0; j< myArray[i].length; j++) {
+			console.log(myArray[i][j]);
+		}
+	}
+
+	/**
+	* In ra dãy số giảm dần từ 100 đến 1
+	*/
+	for (var i = 100; i >= 0; i--) {
+		console.log(i);
+	}
+8. Đệ quy
+ - Xác định điểm dừng.
+ - Logic handle => Tạo ra điểm dừng
+
+	/**
+	* Viết ứng dụng countDown
+	*/
+	function countDown(num) {
+		Fi (num > 0) {
+			console.log(num);
+			return countDown(num - 1);
+		}
+		return num;
+	}
+
+	countDown(3);
+
+	function loop(start, end, cb) {
+		in (start <=  end) {
+			cb(start);
+			return loop(start + 1, end, cb);
+		}
+	}
+
+	var array = [
+		"Javacript",
+		"PHP",
+		"Dart"
+	];
+
+	loop(0, array.length - 1, function(index) {
+		console.log("index: ", index);
+	})
+
+	/**
+	* Bài toán giai thừa
+	*/
+
+	function giaiThua(number) {
+		if(number > 0) {
+			return number * giaithua(number - 1);
+		}
+		return 1;
+	}
+
+ARRAY METHODS
+	var courses = [
+		{
+			id: 1;
+			name: "Javascript";
+			coin: 250
+		},
+		{
+			id: 2;
+			name: "HTML, CSS";
+			coin: 0
+		},
+		{
+			id: 3;
+			name: "Ruby";
+			coin: 0
+		},
+		{
+			id: 4;
+			name: "PHP";
+			coin: 400
+		},
+		{
+			id: 5;
+			name: "ReactJS";
+			coin: 500
+		}
+	];
+1. forEach()
+ - Duyệt và trả về từng phần tử của mảng.
+	courses.forEach(function(course, index) {
+		console.log(index, course);
+	})
+2. every()
+ - Kiểm tra tất cả các phần tử của mảng phải thoả mãn điều kiện cho trước.
+	// Kiểm tra xem tất cả các khoá học trong mảng có phải là miễn phí không.
+	var isFree = courses.every(function(course, index) {
+		return course.coin === 0;
+	})
+	console.log(isFree); // false
+3. some()
+ - Kiểm tra một phần tử trong mảng thoả mãn điều kiện cho trước
+	var isFree = courses.some(function(course, index) {
+		return course.coin === 0;
+	})
+	console.log(isFree); // true
+4. find()
+ - Tìm kiếm phần tử trong mảng thoả mãn điều kiện cho trước, nếu có, trả về 1 phần tử duy nhất thoả mãn, nếu không có, trả về undefined
+	var course = courses.find(function(course, index) {
+		return course.name === "Ruby";
+	})
+	console.log(course);
+5. filter()
+ - Tìm kiếm phần tử trong mảng, trả về một danh sách các phần tử thoả mãn điều kiện.
+	var listCourses = courses.filter(function(course, index) {
+		return course.name === "Ruby";
+	})
+	console.log(course);
+
+	/**
+	* Tạo hàm getMostFavoriteSport có 1 tham số truyền vào,
+	* trả về các môn thể thao có điểm số yêu thích lớn hơn 5.
+	*/
+	const sports = [
+    	{
+        	name: 'Bóng rổ',
+        	like: 6
+    	},
+    	{
+        	name: 'Bơi lội',
+        	like: 5
+    	},
+    	{
+        	name: 'Bóng đá',
+        	like: 10
+    	},
+	]
+
+	function getMostFavoriteSport(sports){
+    	return sports.filter(num => num >5);
+	}  
+	// Kỳ vọng
+	console.log(getMostFavoriteSport(sports)) 
+	// Output: [{ name: 'Bóng rổ, like: 6 }, { name: 'Bóng đá, like: 10 }]
+6. map()
+7. reduce()
+
+	
